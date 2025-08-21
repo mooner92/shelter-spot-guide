@@ -90,7 +90,7 @@ const MapView = ({ shelters, selectedShelterId, onShelterSelect, className = "" 
         <div className="absolute top-4 left-4 right-16 z-10">
           <input
             type="search"
-            placeholder="Search for shelters by name or address..."
+            placeholder="쉼터 이름이나 주소로 검색..."
             className="w-full px-4 py-2 rounded-lg border bg-card/95 backdrop-blur text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
@@ -126,7 +126,11 @@ const MapView = ({ shelters, selectedShelterId, onShelterSelect, className = "" 
                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                   <div className="bg-card text-foreground px-3 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap border">
                     <div className="font-semibold">{shelter.name}</div>
-                    <div className="text-muted-foreground text-xs">{shelter.congestion} congestion</div>
+                    <div className="text-muted-foreground text-xs">
+                      {shelter.congestion === 'low' && '여유'}
+                      {shelter.congestion === 'medium' && '보통'}
+                      {shelter.congestion === 'high' && '혼잡'}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -137,31 +141,31 @@ const MapView = ({ shelters, selectedShelterId, onShelterSelect, className = "" 
         {/* Mock Street Labels */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 text-muted-foreground text-sm font-medium opacity-60">
-            Market Street
+            시장거리
           </div>
           <div className="absolute top-1/2 left-1/3 text-muted-foreground text-sm font-medium opacity-60">
-            Mission District
+            미션구역
           </div>
           <div className="absolute top-1/3 right-1/4 text-muted-foreground text-sm font-medium opacity-60">
-            Downtown
+            도심
           </div>
         </div>
 
         {/* Legend */}
         <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur rounded-lg p-3 text-sm border">
-          <div className="font-semibold mb-2 text-foreground">Congestion Levels</div>
+          <div className="font-semibold mb-2 text-foreground">혼잡도 수준</div>
           <div className="space-y-1">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 rounded-full bg-success"></div>
-              <span className="text-muted-foreground">Low</span>
+              <span className="text-muted-foreground">여유</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 rounded-full bg-warning"></div>
-              <span className="text-muted-foreground">Medium</span>
+              <span className="text-muted-foreground">보통</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 rounded-full bg-destructive"></div>
-              <span className="text-muted-foreground">High</span>
+              <span className="text-muted-foreground">혼잡</span>
             </div>
           </div>
         </div>
