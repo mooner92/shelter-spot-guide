@@ -18,7 +18,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              무더위 쉼터 찾기 소개
+              오량쉼터
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 font-paperlogy-light">
               극심한 폭염 시 지역사회에 시원한 안식처를 제공합니다
@@ -33,10 +33,10 @@ const About = () => {
           <Card>
             <CardContent className="p-8">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-4">우리의 사명</h2>
+                <h2 className="text-3xl font-bold mb-4">오량쉼터의 의의</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed font-paperlogy-light">
-                  무더위 쉼터 찾기는 극심한 폭염 상황에서 냉방센터, 쉼터, 구호시설에 대한 실시간 접근을 제공하여 
-                  취약한 지역사회 구성원들을 보호하는 것을 목표로 합니다. 우리 플랫폼은 현대 기술과 커뮤니티 중심 데이터를 
+                  오량쉼터는 극심한 폭염 상황에서 냉방센터, 쉼터, 구호시설에 대한 실시간 접근을 제공하여
+                  취약한 지역사회 구성원들을 보호하는 것을 목표로 합니다. 우리 플랫폼은 현대 기술과 커뮤니티 중심 데이터를
                   결합하여 모든 사람이 가장 필요할 때 안전하고 시원한 피난처를 찾을 수 있도록 합니다.
                 </p>
               </div>
@@ -46,7 +46,7 @@ const About = () => {
 
         {/* 기능 소개 */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">우리가 돕는 방법</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">오량쉼터의 기능</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
@@ -79,7 +79,7 @@ const About = () => {
                 </div>
                 <h3 className="font-semibold mb-2">검증된 정보</h3>
                 <p className="text-sm text-muted-foreground font-paperlogy-light">
-                  모든 쉼터 정보는 지방자치단체와 지역사회 파트너에 의해 검증되고 정기적으로 업데이트됩니다.
+                  모든 쉼터 정보는 나라에서 운영하는 공공데이터포털에 의해 검증되고 정기적으로 업데이트됩니다.
                 </p>
               </CardContent>
             </Card>
@@ -91,7 +91,7 @@ const About = () => {
                 </div>
                 <h3 className="font-semibold mb-2">빠른 접근</h3>
                 <p className="text-sm text-muted-foreground font-paperlogy-light">
-                  응급 상황과 쉬운 접근성을 위해 설계된 빠르고 모바일 친화적인 인터페이스입니다.
+                  응급 상황과 쉬운 접근성을 위해 설계된 빠르고 모바일 친화적인 인터페이스로 구성했습니다.
                 </p>
               </CardContent>
             </Card>
@@ -127,7 +127,7 @@ const About = () => {
                 </div>
                 <h3 className="font-semibold mb-2">길찾기</h3>
                 <p className="text-muted-foreground font-paperlogy-light">
-                  선택한 쉼터까지 단계별 길찾기를 제공받고 NFC 기술을 이용해 체크인하세요.
+                  선택한 쉼터까지 단계별 길찾기를 제공받아 폭염쉼터를 이용하세요.
                 </p>
               </div>
             </div>
@@ -143,15 +143,15 @@ const About = () => {
             <CardContent className="p-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-bold text-primary mb-2">15,000+</div>
+                  <div className="text-4xl font-bold text-primary mb-2">0</div>
                   <div className="text-muted-foreground font-paperlogy-light">도움받은 사람들</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-accent mb-2">150+</div>
-                  <div className="text-muted-foreground font-paperlogy-light">파트너 위치</div>
+                  <div className="text-4xl font-bold text-accent mb-2">5</div>
+                  <div className="text-muted-foreground font-paperlogy-light">폭염쉼터 위치</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-success mb-2">24/7</div>
+                  <div className="text-4xl font-bold text-success mb-2">24 hours</div>
                   <div className="text-muted-foreground font-paperlogy-light">서비스 이용 가능</div>
                 </div>
               </div>
@@ -209,7 +209,7 @@ const About = () => {
               <div className="space-y-6">
                 <div className="text-center">
                   <p className="text-muted-foreground mb-6 font-paperlogy-light">
-                    질문이나 제안이 있으시거나 저희와 파트너십을 맺고 싶으시다면 언제든지 연락해 주세요.
+                    질문이나 제안이 있으시거나 저희와 계약을 하고 싶으시다면 언제든지 연락해 주세요.
                   </p>
                 </div>
                 
@@ -219,15 +219,15 @@ const About = () => {
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-primary" />
                     <div>
-                      <div className="font-medium">응급 핫라인</div>
-                      <div className="text-sm text-muted-foreground font-paperlogy-light">1588-0119</div>
+                      <div className="font-medium">응급상황 시</div>
+                      <div className="text-sm text-muted-foreground font-paperlogy-light">010-9704-4016</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
                     <div>
                       <div className="font-medium">지원 이메일</div>
-                      <div className="text-sm text-muted-foreground font-paperlogy-light">help@shelterguide.kr</div>
+                      <div className="text-sm text-muted-foreground font-paperlogy-light">25_lmj0701@dshs.kr</div>
                     </div>
                   </div>
                 </div>
