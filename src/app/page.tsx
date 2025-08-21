@@ -13,7 +13,7 @@ import { mockShelters, getSheltersByDistance } from "@/data/mockShelters";
 import type { Shelter } from "@/components/Shelter/ShelterCard";
 
 /**
- * 홈 페이지 컴포넌트 - 무더위 쉼터 찾기 메인 지도 인터페이스
+ * 홈 페이지 컴포넌트 - 오량쉼터 메인 지도 인터페이스
  * 인터랙티브 지도, 검색 기능, 쉼터 목록을 제공합니다
  */
 export default function Home() {

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 /**
- * 무더위 쉼터 찾기 헤더 컴포넌트
+ * 오량쉼터 헤더 컴포넌트
  * 네비게이션, 검색 기능, 사용자 접근을 제공합니다
  */
 const Header = () => {
@@ -22,19 +22,10 @@ const Header = () => {
             <MapPin className="w-5 h-5 text-primary-foreground" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-lg text-foreground">무더위 쉼터 찾기</span>
+            <span className="font-bold text-lg text-foreground">오량쉼터</span>
             <span className="text-xs text-muted-foreground hidden sm:block font-paperlogy-light">가까운 쉼터를 찾아보세요</span>
           </div>
         </Link>
-
-        {/* 검색창 - 모바일에서는 숨김, 큰 화면에서 표시 */}
-        <div className="hidden md:flex flex-1 max-w-md mx-6">
-          <Input
-            type="search"
-            placeholder="쉼터 이름이나 주소로 검색..."
-            className="w-full"
-          />
-        </div>
 
         {/* 네비게이션 */}
         <nav className="flex items-center space-x-1">

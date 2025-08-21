@@ -6,7 +6,7 @@ import Header from "@/components/Layout/Header";
 
 /**
  * 소개 페이지 컴포넌트
- * 무더위 쉼터 찾기 서비스에 대한 정보를 제공합니다
+ * 오량쉼터 서비스에 대한 정보를 제공합니다
  */
 const About = () => {
   return (

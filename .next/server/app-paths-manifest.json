@@ -1,3 +1,5 @@
 {
+  "/about/page": "app/about/page.js",
+  "/shelter/[id]/page": "app/shelter/[id]/page.js",
   "/page": "app/page.js"
 }
