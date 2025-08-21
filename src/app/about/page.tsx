@@ -151,7 +151,7 @@ const About = () => {
                   <div className="text-muted-foreground font-paperlogy-light">폭염쉼터 위치</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-success mb-2">24 hours</div>
+                  <div className="text-4xl font-bold text-success mb-2">24시간</div>
                   <div className="text-muted-foreground font-paperlogy-light">서비스 이용 가능</div>
                 </div>
               </div>
