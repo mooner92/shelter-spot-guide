@@ -4,8 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "react-router-dom";
 
 /**
- * Header component for the Heat Shelter Finder
- * Provides navigation, search functionality, and user access
+ * 무더위 쉼터 찾기 헤더 컴포넌트
+ * 네비게이션, 검색 기능, 사용자 접근을 제공합니다
  */
 const Header = () => {
   const location = useLocation();
@@ -13,62 +13,62 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo and Title */}
+        {/* 로고와 제목 */}
         <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
             <MapPin className="w-5 h-5 text-primary-foreground" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-lg text-foreground">Heat Shelter Finder</span>
-            <span className="text-xs text-muted-foreground hidden sm:block">Find Cool Relief Near You</span>
+            <span className="font-bold text-lg text-foreground">무더위 쉼터 찾기</span>
+            <span className="text-xs text-muted-foreground hidden sm:block font-paperlogy-light">가까운 쉼터를 찾아보세요</span>
           </div>
         </Link>
 
-        {/* Search Bar - Hidden on mobile, shown on larger screens */}
+        {/* 검색창 - 모바일에서는 숨김, 큰 화면에서 표시 */}
         <div className="hidden md:flex flex-1 max-w-md mx-6">
           <Input
             type="search"
-            placeholder="Search shelters by name or address..."
+            placeholder="쉼터 이름이나 주소로 검색..."
             className="w-full"
           />
         </div>
 
-        {/* Navigation */}
+        {/* 네비게이션 */}
         <nav className="flex items-center space-x-1">
           <Button
             variant={location.pathname === "/" ? "default" : "ghost"}
             size="sm"
             asChild
           >
-            <Link to="/">Home</Link>
+            <Link to="/">홈</Link>
           </Button>
           <Button
             variant={location.pathname === "/shelters" ? "default" : "ghost"}
             size="sm"
             asChild
           >
-            <Link to="/shelters">Shelters</Link>
+            <Link to="/shelters">쉼터</Link>
           </Button>
           <Button
             variant={location.pathname === "/about" ? "default" : "ghost"}
             size="sm"
             asChild
           >
-            <Link to="/about">About</Link>
+            <Link to="/about">소개</Link>
           </Button>
           
-          {/* User Menu */}
+          {/* 사용자 메뉴 */}
           <Button variant="ghost" size="sm" className="ml-2">
             <User className="w-4 h-4" />
           </Button>
         </nav>
       </div>
 
-      {/* Mobile Search Bar */}
+      {/* 모바일 검색창 */}
       <div className="md:hidden px-4 pb-3">
         <Input
           type="search"
-          placeholder="Search shelters..."
+          placeholder="쉼터 검색..."
           className="w-full"
         />
       </div>

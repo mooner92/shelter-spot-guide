@@ -2,13 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 페이퍼로지 폰트 정의 */
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('/fonts/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy-Light';
+  src: url('/fonts/Paperlogy-2ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* 디자인 시스템 정의. 모든 색상, 그라데이션, 폰트 등은 여기서 정의해야 합니다. 
+모든 색상은 HSL이어야 합니다.
 */
 
 @layer base {
   :root {
-    /* Cool, heat-relief inspired color palette */
+    /* 시원하고 더위 완화에서 영감을 받은 색상 팔레트 */
     --background: 210 40% 98%;
     --foreground: 215 25% 25%;
 
@@ -18,34 +33,34 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 25%;
 
-    /* Primary: Cool blue for trust and relief */
+    /* Primary: 신뢰와 안도감을 위한 시원한 블루 */
     --primary: 210 100% 56%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 210 100% 85%;
     --primary-dark: 210 100% 40%;
 
-    /* Secondary: Light blue-gray for subtlety */
+    /* Secondary: 은은함을 위한 밝은 블루-그레이 */
     --secondary: 210 20% 94%;
     --secondary-foreground: 215 25% 35%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 55%;
 
-    /* Accent: Refreshing teal */
+    /* Accent: 상쾌한 틸 */
     --accent: 185 85% 45%;
     --accent-foreground: 0 0% 100%;
     --accent-light: 185 85% 85%;
 
-    /* Status colors for congestion levels */
-    --success: 145 65% 45%; /* Green - Low congestion */
+    /* 혼잡도 레벨을 위한 상태 색상 */
+    --success: 145 65% 45%; /* 초록 - 여유 */
     --success-foreground: 0 0% 100%;
     --success-light: 145 65% 90%;
 
-    --warning: 45 95% 55%; /* Orange - Medium congestion */
+    --warning: 45 95% 55%; /* 주황 - 보통 */
     --warning-foreground: 0 0% 100%;
     --warning-light: 45 95% 90%;
 
-    --destructive: 0 85% 60%; /* Red - High congestion */
+    --destructive: 0 85% 60%; /* 빨강 - 혼잡 */
     --destructive-foreground: 0 0% 100%;
     --destructive-light: 0 85% 95%;
 
@@ -53,12 +68,12 @@ All colors MUST be HSL.
     --input: 210 15% 88%;
     --ring: 210 100% 56%;
 
-    /* Gradients for enhanced visual appeal */
+    /* 향상된 시각적 매력을 위한 그라데이션 */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-hero: linear-gradient(180deg, hsl(var(--primary-light)), hsl(var(--background)));
     --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(var(--muted)));
     
-    /* Shadows with color */
+    /* 색상이 있는 그림자 */
     --shadow-primary: 0 10px 30px -5px hsl(var(--primary) / 0.2);
     --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.1);
     --shadow-elevated: 0 20px 40px -10px hsl(var(--primary) / 0.15);
@@ -128,5 +143,12 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Paperlogy', sans-serif;
+  }
+
+  /* 작은 글자와 연한 글씨를 위한 페이퍼로지 Light 폰트 */
+  .text-xs, .text-sm, .text-muted-foreground {
+    font-family: 'Paperlogy-Light', sans-serif !important;
+    font-weight: 200 !important;
   }
 }

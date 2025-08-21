@@ -11,8 +11,8 @@ import { mockShelters, getSheltersByDistance } from "@/data/mockShelters";
 import type { Shelter } from "@/components/Shelter/ShelterCard";
 
 /**
- * Home page component - Main map interface for finding heat shelters
- * Features interactive map, search functionality, and shelter listings
+ * 홈 페이지 컴포넌트 - 무더위 쉼터 찾기 메인 지도 인터페이스
+ * 인터랙티브 지도, 검색 기능, 쉼터 목록을 제공합니다
  */
 const Home = () => {
   const [selectedShelter, setSelectedShelter] = useState<Shelter | null>(null);
@@ -20,7 +20,7 @@ const Home = () => {
   const [sortBy, setSortBy] = useState("distance");
   const [showList, setShowList] = useState(false);
 
-  // Filter and sort shelters based on user preferences
+  // 사용자 선호도에 따라 쉼터 필터링 및 정렬
   const filteredShelters = mockShelters.filter(shelter =>
     shelter.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     shelter.address.toLowerCase().includes(searchQuery.toLowerCase())
@@ -40,24 +40,24 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
+      {/* 히어로 섹션 */}
       <section className="relative bg-gradient-to-r from-primary to-accent text-primary-foreground py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Find Cool Relief Near You
+              가까운 무더위 쉼터를 찾아보세요
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8">
-              Locate nearby heat shelters with real-time congestion data and facility information
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 font-paperlogy-light">
+              실시간 혼잡도와 시설 정보를 확인하여 가까운 무더위 쉼터를 찾으세요
             </p>
             
-            {/* Quick Search */}
+            {/* 빠른 검색 */}
             <div className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                 <Input
                   type="search"
-                  placeholder="Search by shelter name or address..."
+                  placeholder="쉼터명이나 주소로 검색..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 bg-card text-foreground"
@@ -65,11 +65,11 @@ const Home = () => {
               </div>
               <Select value={sortBy} onValueChange={setSortBy}>
                 <SelectTrigger className="w-full sm:w-48 bg-card text-foreground">
-                  <SelectValue placeholder="Sort by" />
+                  <SelectValue placeholder="정렬" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="distance">Sort by Distance</SelectItem>
-                  <SelectItem value="congestion">Sort by Congestion</SelectItem>
+                  <SelectItem value="distance">거리순 정렬</SelectItem>
+                  <SelectItem value="congestion">혼잡도순 정렬</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -77,17 +77,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* 메인 콘텐츠 */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Map Section */}
+          {/* 지도 섹션 */}
           <div className="lg:col-span-2">
             <Card className="h-[600px]">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center space-x-2">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span>Heat Shelter Locations</span>
+                    <span>무더위 쉼터 위치</span>
                   </CardTitle>
                   <div className="flex space-x-2">
                     <Button
@@ -95,14 +95,14 @@ const Home = () => {
                       size="sm"
                       onClick={() => setShowList(false)}
                     >
-                      Map View
+                      지도 보기
                     </Button>
                     <Button
                       variant={showList ? "default" : "outline"}
                       size="sm"
                       onClick={() => setShowList(true)}
                     >
-                      List View
+                      목록 보기
                     </Button>
                   </div>
                 </div>
@@ -130,13 +130,13 @@ const Home = () => {
             </Card>
           </div>
 
-          {/* Sidebar */}
+          {/* 사이드바 */}
           <div className="space-y-6">
-            {/* Selected Shelter Details */}
+            {/* 선택된 쉼터 상세정보 */}
             {selectedShelter && (
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Selected Shelter</CardTitle>
+                  <CardTitle className="text-lg">선택된 쉼터</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ShelterCard shelter={selectedShelter} />
@@ -144,12 +144,12 @@ const Home = () => {
               </Card>
             )}
 
-            {/* Quick Stats */}
+            {/* 실시간 통계 */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Navigation className="w-5 h-5 text-primary" />
-                  <span>Quick Stats</span>
+                  <span>실시간 현황</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -158,28 +158,28 @@ const Home = () => {
                     <div className="text-2xl font-bold text-success">
                       {mockShelters.filter(s => s.congestion === "low").length}
                     </div>
-                    <div className="text-sm text-muted-foreground">Low Congestion</div>
+                    <div className="text-sm text-muted-foreground font-paperlogy-light">여유</div>
                   </div>
                   <div className="text-center p-3 bg-warning-light rounded-lg">
                     <div className="text-2xl font-bold text-warning">
                       {mockShelters.filter(s => s.congestion === "medium").length}
                     </div>
-                    <div className="text-sm text-muted-foreground">Medium Congestion</div>
+                    <div className="text-sm text-muted-foreground font-paperlogy-light">보통</div>
                   </div>
                 </div>
                 <div className="text-center p-3 bg-destructive-light rounded-lg">
                   <div className="text-2xl font-bold text-destructive">
                     {mockShelters.filter(s => s.congestion === "high").length}
                   </div>
-                  <div className="text-sm text-muted-foreground">High Congestion</div>
+                  <div className="text-sm text-muted-foreground font-paperlogy-light">혼잡</div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Nearest Shelters */}
+            {/* 가까운 쉼터 */}
             <Card>
               <CardHeader>
-                <CardTitle>Nearest Shelters</CardTitle>
+                <CardTitle>가까운 쉼터</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {getSheltersByDistance().slice(0, 3).map((shelter) => (
@@ -189,8 +189,8 @@ const Home = () => {
                     onClick={() => setSelectedShelter(shelter)}
                   >
                     <div>
-                      <div className="font-medium text-sm">{shelter.name}</div>
-                      <div className="text-xs text-muted-foreground">{shelter.distance}</div>
+                      <div className="font-medium text-sm font-paperlogy-light">{shelter.name}</div>
+                      <div className="text-xs text-muted-foreground font-paperlogy-light">{shelter.distance}</div>
                     </div>
                     <div className={`w-3 h-3 rounded-full ${
                       shelter.congestion === "low" ? "bg-success" :

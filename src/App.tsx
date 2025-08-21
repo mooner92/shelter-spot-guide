@@ -22,7 +22,7 @@ const App = () => (
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/shelter/:id" element={<ShelterDetail />} />
           <Route path="/about" element={<About />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* 모든 커스텀 라우트는 와일드카드 "*" 라우트 위에 추가하세요 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

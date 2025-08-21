@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import type { Shelter } from "@/components/Shelter/ShelterCard";
 
 /**
- * Props for MapView component
+ * MapView 컴포넌트 props
  */
 interface MapViewProps {
   shelters: Shelter[];
@@ -15,15 +15,15 @@ interface MapViewProps {
 }
 
 /**
- * Mock map component that simulates a real map interface
- * In a real implementation, this would integrate with Google Maps, Mapbox, etc.
+ * 실제 지도 인터페이스를 시뮬레이션하는 모크 지도 컴포넌트
+ * 실제 구현에서는 Google Maps, Mapbox 등과 통합됩니다.
  */
 const MapView = ({ shelters, selectedShelterId, onShelterSelect, className = "" }: MapViewProps) => {
   const [zoom, setZoom] = useState(12);
-  const [center, setCenter] = useState({ lat: 37.7749, lng: -122.4194 }); // San Francisco
+  const [center, setCenter] = useState({ lat: 37.5665, lng: 126.9780 }); // 서울
 
   /**
-   * Get marker color based on congestion level
+   * 혼잡도 레벨에 따른 마커 색상 반환
    */
   const getMarkerColor = (congestion: string) => {
     switch (congestion) {

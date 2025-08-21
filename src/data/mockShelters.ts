@@ -1,18 +1,18 @@
 import type { Shelter } from "@/components/Shelter/ShelterCard";
 
 /**
- * Mock shelter data for demonstration
- * In a real application, this would come from an API
+ * 데모용 쉼터 모크 데이터
+ * 실제 애플리케이션에서는 API에서 데이터를 가져옵니다
  */
 export const mockShelters: Shelter[] = [
   {
     id: "1",
-    name: "Community Center Shelter",
-    address: "123 Elm Street, Anytown, CA 91234",
-    distance: "0.3 miles",
-    operatingHours: "9 AM - 5 PM",
+    name: "커뮤니티센터 쉼터",
+    address: "서울시 강남구 테헤란로 123",
+    distance: "0.5 km",
+    operatingHours: "오전 9시 - 오후 5시",
     congestion: "low",
-    waitTime: "5 minutes",
+    waitTime: "5분",
     facilities: {
       wifi: true,
       showers: true,
@@ -20,18 +20,18 @@ export const mockShelters: Shelter[] = [
       firstAid: true
     },
     coordinates: {
-      lat: 37.7849,
-      lng: -122.4094
+      lat: 37.5009,
+      lng: 127.0396
     }
   },
   {
     id: "2",
-    name: "City Hall Shelter",
-    address: "456 Oak Avenue, Anytown, CA 91234",
-    distance: "0.7 miles",
-    operatingHours: "10 AM - 2 PM",
+    name: "시청 무더위쉼터",
+    address: "서울시 중구 세종대로 110",
+    distance: "1.1 km",
+    operatingHours: "오전 10시 - 오후 2시",
     congestion: "medium",
-    waitTime: "15 minutes",
+    waitTime: "15분",
     facilities: {
       wifi: true,
       showers: false,
@@ -39,18 +39,18 @@ export const mockShelters: Shelter[] = [
       firstAid: true
     },
     coordinates: {
-      lat: 37.7749,
-      lng: -122.4194
+      lat: 37.5635,
+      lng: 126.9970
     }
   },
   {
     id: "3",
-    name: "Library Shelter",
-    address: "789 Pine Lane, Anytown, CA 91234",
-    distance: "1.2 miles",
-    operatingHours: "9 AM - 5 PM",
+    name: "중앙도서관 쉼터",
+    address: "서울시 서초구 반포대로 201",
+    distance: "1.9 km",
+    operatingHours: "오전 9시 - 오후 5시",
     congestion: "low",
-    waitTime: "2 minutes",
+    waitTime: "2분",
     facilities: {
       wifi: true,
       showers: false,
@@ -58,18 +58,18 @@ export const mockShelters: Shelter[] = [
       firstAid: false
     },
     coordinates: {
-      lat: 37.7649,
-      lng: -122.4294
+      lat: 37.5033,
+      lng: 127.0041
     }
   },
   {
     id: "4",
-    name: "Recreation Center Shelter",
-    address: "101 Maple Drive, Anytown, CA 91234",
-    distance: "0.9 miles",
-    operatingHours: "10 AM - 6 PM",
+    name: "생활체육센터 쉼터",
+    address: "서울시 송파구 올림픽로 300",
+    distance: "1.4 km",
+    operatingHours: "오전 10시 - 오후 6시",
     congestion: "medium",
-    waitTime: "12 minutes",
+    waitTime: "12분",
     facilities: {
       wifi: false,
       showers: true,
@@ -77,18 +77,18 @@ export const mockShelters: Shelter[] = [
       firstAid: true
     },
     coordinates: {
-      lat: 37.7949,
-      lng: -122.3994
+      lat: 37.5145,
+      lng: 127.1066
     }
   },
   {
     id: "5",
-    name: "Senior Center Shelter",
-    address: "222 Cedar Court, Anytown, CA 91234",
-    distance: "1.5 miles",
-    operatingHours: "Monday - Friday: 9 AM - 5 PM",
+    name: "경로당 쉼터",
+    address: "서울시 마포구 월드컵로 222",
+    distance: "2.4 km",
+    operatingHours: "월-금: 오전 9시 - 오후 5시",
     congestion: "high",
-    waitTime: "25 minutes",
+    waitTime: "25분",
     facilities: {
       wifi: true,
       showers: true,
@@ -96,28 +96,28 @@ export const mockShelters: Shelter[] = [
       firstAid: true
     },
     coordinates: {
-      lat: 37.7549,
-      lng: -122.4394
+      lat: 37.5565,
+      lng: 126.9195
     }
   }
 ];
 
 /**
- * Get shelter by ID
+ * ID로 쉼터 찾기
  */
 export const getShelterById = (id: string): Shelter | undefined => {
   return mockShelters.find(shelter => shelter.id === id);
 };
 
 /**
- * Filter shelters by congestion level
+ * 혼잡도 레벨별 쉼터 필터링
  */
 export const getSheltersByCongestion = (level: string): Shelter[] => {
   return mockShelters.filter(shelter => shelter.congestion === level);
 };
 
 /**
- * Sort shelters by distance (mock implementation)
+ * 거리순으로 쉼터 정렬 (모크 구현)
  */
 export const getSheltersByDistance = (): Shelter[] => {
   return [...mockShelters].sort((a, b) => 

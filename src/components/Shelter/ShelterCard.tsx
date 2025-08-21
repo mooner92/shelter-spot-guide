@@ -5,12 +5,12 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 
 /**
- * Congestion level type definition
+ * 혼잡도 레벨 타입 정의
  */
 export type CongestionLevel = "low" | "medium" | "high";
 
 /**
- * Shelter data interface
+ * 쉼터 데이터 인터페이스
  */
 export interface Shelter {
   id: string;
@@ -33,7 +33,7 @@ export interface Shelter {
 }
 
 /**
- * Props for ShelterCard component
+ * ShelterCard 컴포넌트 props
  */
 interface ShelterCardProps {
   shelter: Shelter;
@@ -41,28 +41,28 @@ interface ShelterCardProps {
 }
 
 /**
- * Get congestion color and text based on level
+ * 혼잡도 레벨에 따른 색상과 텍스트 반환
  */
 const getCongestionInfo = (level: CongestionLevel) => {
   switch (level) {
     case "low":
       return {
         variant: "success" as const,
-        text: "Low Congestion",
+        text: "여유",
         color: "text-success-foreground",
         bgColor: "bg-success"
       };
     case "medium":
       return {
         variant: "warning" as const,
-        text: "Medium Congestion",
+        text: "보통",
         color: "text-warning-foreground",
         bgColor: "bg-warning"
       };
     case "high":
       return {
         variant: "destructive" as const,
-        text: "High Congestion",
+        text: "혼잡",
         color: "text-destructive-foreground",
         bgColor: "bg-destructive"
       };
@@ -70,8 +70,8 @@ const getCongestionInfo = (level: CongestionLevel) => {
 };
 
 /**
- * ShelterCard component displays shelter information in a card format
- * Used in shelter lists and recommendations
+ * ShelterCard 컴포넌트 - 카드 형태로 쉼터 정보를 표시합니다
+ * 쉼터 목록과 추천에서 사용됩니다
  */
 const ShelterCard = ({ shelter, showMap = false }: ShelterCardProps) => {
   const congestionInfo = getCongestionInfo(shelter.congestion);
@@ -80,40 +80,40 @@ const ShelterCard = ({ shelter, showMap = false }: ShelterCardProps) => {
     <Card className="hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
-          <div className="flex-1">
-            <CardTitle className="text-lg font-semibold text-foreground mb-1">
+          <div className="flex-1 min-w-0">
+            <CardTitle className="text-lg font-semibold text-foreground mb-1 truncate">
               {shelter.name}
             </CardTitle>
             <div className="flex items-center text-muted-foreground text-sm mb-2">
-              <MapPin className="w-4 h-4 mr-1" />
-              <span>{shelter.address}</span>
+              <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
+              <span className="font-paperlogy-light truncate">{shelter.address}</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm">
+            <div className="flex items-center space-x-3 text-sm flex-wrap">
               <div className="flex items-center text-muted-foreground">
                 <Navigation className="w-4 h-4 mr-1" />
-                <span>{shelter.distance}</span>
+                <span className="font-paperlogy-light whitespace-nowrap">{shelter.distance}</span>
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Clock className="w-4 h-4 mr-1" />
-                <span>{shelter.operatingHours}</span>
+                <span className="font-paperlogy-light whitespace-nowrap">{shelter.operatingHours}</span>
               </div>
             </div>
           </div>
           
-          {/* Congestion Status */}
+          {/* 혼잡도 상태 */}
           <div className="text-right">
             <Badge variant={congestionInfo.variant} className="mb-2">
               {congestionInfo.text}
             </Badge>
-            <div className="text-xs text-muted-foreground">
-              Wait: {shelter.waitTime}
+            <div className="text-xs text-muted-foreground font-paperlogy-light">
+              대기시간: {shelter.waitTime}
             </div>
           </div>
         </div>
       </CardHeader>
 
       <CardContent className="pt-0">
-        {/* Facilities */}
+        {/* 시설 정보 */}
         <div className="flex items-center space-x-4 mb-4">
           <div className="flex items-center space-x-2">
             {shelter.facilities.wifi && (
@@ -139,15 +139,15 @@ const ShelterCard = ({ shelter, showMap = false }: ShelterCardProps) => {
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* 액션 버튼 */}
         <div className="flex space-x-2">
           <Button size="sm" asChild className="flex-1">
             <Link to={`/shelter/${shelter.id}`}>
-              View Details
+              상세보기
             </Link>
           </Button>
           <Button variant="outline" size="sm">
-            Get Directions
+            길찾기
           </Button>
         </div>
       </CardContent>
