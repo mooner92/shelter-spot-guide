@@ -21,7 +21,9 @@ export default function RootLayout({
         <meta name="keywords" content="쉼터, 무더위쉼터, 냉방센터, 실시간, 혼잡도" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <script
+          src={`https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=${process.env.NEXT_PUBLIC_TMAP_APP_KEY}`}
+        />
       </head>
       <body>
         <QueryClientProvider client={queryClient}>
