@@ -2,7 +2,7 @@ import { MapPin, Clock, Wifi, Bath, Bed, Heart, Navigation } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 /**
  * 혼잡도 레벨 타입 정의
@@ -142,7 +142,7 @@ const ShelterCard = ({ shelter, showMap = false }: ShelterCardProps) => {
         {/* 액션 버튼 */}
         <div className="flex space-x-2">
           <Button size="sm" asChild className="flex-1">
-            <Link to={`/shelter/${shelter.id}`}>
+            <Link href={`/shelter/${shelter.id}`}>
               상세보기
             </Link>
           </Button>

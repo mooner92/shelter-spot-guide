@@ -1,20 +1,23 @@
+'use client'
+
 import { MapPin, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /**
  * 무더위 쉼터 찾기 헤더 컴포넌트
  * 네비게이션, 검색 기능, 사용자 접근을 제공합니다
  */
 const Header = () => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* 로고와 제목 */}
-        <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
             <MapPin className="w-5 h-5 text-primary-foreground" />
           </div>
@@ -36,25 +39,25 @@ const Header = () => {
         {/* 네비게이션 */}
         <nav className="flex items-center space-x-1">
           <Button
-            variant={location.pathname === "/" ? "default" : "ghost"}
+            variant={pathname === "/" ? "default" : "ghost"}
             size="sm"
             asChild
           >
-            <Link to="/">홈</Link>
+            <Link href="/">홈</Link>
           </Button>
           <Button
-            variant={location.pathname === "/shelters" ? "default" : "ghost"}
+            variant={pathname === "/shelters" ? "default" : "ghost"}
             size="sm"
             asChild
           >
-            <Link to="/shelters">쉼터</Link>
+            <Link href="/shelters">쉼터</Link>
           </Button>
           <Button
-            variant={location.pathname === "/about" ? "default" : "ghost"}
+            variant={pathname === "/about" ? "default" : "ghost"}
             size="sm"
             asChild
           >
-            <Link to="/about">소개</Link>
+            <Link href="/about">소개</Link>
           </Button>
           
           {/* 사용자 메뉴 */}
