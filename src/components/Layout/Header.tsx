@@ -50,6 +50,13 @@ const Header = () => {
           >
             <Link href="/about">소개</Link>
           </Button>
+          <Button
+            variant={pathname === "/srt" ? "default" : "ghost"}
+            size="sm"
+            asChild
+          >
+            <Link href="/srt">SRT 통계</Link>
+          </Button>
           
           {/* 사용자 메뉴 */}
           <Button variant="ghost" size="sm" className="ml-2">
