@@ -430,7 +430,7 @@ export function SRTChart() {
                 />
                 <YAxis 
                   tick={{ fontSize: 12 }}
-                  tickFormatter={(value) => `${(value / 1000).toFixed(0)}천`}
+                  tickFormatter={(value) => `${(value / 1000).toFixed(1)}천`}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 {selectedCombinations.map((combination) => {
